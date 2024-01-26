@@ -126,4 +126,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
     assert_equal flash[:alert], 'Invalid fields'
   end
+
+  test 'deletes a product' do
+    assert_difference('Product.count', -1) do
+      delete product_path(products(:phone))
+      assert_redirected_to products_path
+      assert_equal flash[:notice], 'Product successfully deleted'
+    end
+  end
 end
