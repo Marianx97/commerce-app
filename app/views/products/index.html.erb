@@ -3,4 +3,5 @@
 <% @products.each do |product| %>
   <h2 class='product' ><%= link_to product.title, product_path(product.id)%></h2>
   <span> U$D <%= product.price %> </span>
+  <div><%= image_tag product.photo, width: 100 if product.photo.attached? %></div>
 <% end %>
