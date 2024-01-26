@@ -82,4 +82,48 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'form'
   end
+
+  test 'updates a product' do
+    patch product_path(products(:phone)), params: {
+      product: {
+        price: 190
+      }
+    }
+
+    assert_redirected_to product_path(products(:phone))
+    assert_equal flash[:notice], 'Product updated successfully!'
+  end
+
+  test 'does not update a product when title is blank' do
+    patch product_path(products(:phone)), params: {
+      product: {
+        title: '',
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
+
+  test 'does not update a product when description is blank' do
+    patch product_path(products(:phone)), params: {
+      product: {
+        description: '',
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
+
+  test 'does not update a product when price is blank' do
+    patch product_path(products(:phone)), params: {
+      product: {
+        price: '',
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
 end
