@@ -1,0 +1,47 @@
+es:
+  activerecord:
+    models:
+      product: 'Producto'
+    attributes:
+      product:
+        title: 'Título'
+        description: 'Descripción'
+        price: 'Precio'
+        photo: 'Foto'
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: 'no puede estar vacío'
+            description:
+              blank: 'no puede estar vacío'
+            price:
+              blank: 'no puede estar vacío'
+
+  common:
+    confirm: 'Estás seguro/a?'
+    add_product: 'Añadir nuevo producto'
+    invalid_fields: 'Los campos son inválidos'
+
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"
+
+  products:
+    edit:
+      title: 'Editar producto:'
+    new:
+      title: 'Añadir producto:'
+    index:
+      title: 'Productos: '
+    show:
+      edit_product: 'Editar producto'
+      delete_product: 'Eliminar producto'
+    create:
+      created: 'Producto creado exitosamente!'
+    update:
+      updated: 'Producto actualizado exitosamente!'
+    destroy:
+      destroyed: 'Producto eliminado exitosamente!'

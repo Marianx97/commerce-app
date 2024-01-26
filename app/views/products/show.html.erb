@@ -1,15 +1,17 @@
 <h1 class='title'><%= @product.title %></h1>
 <p class='description'> <%= @product.description %> </p>
-<span class='price'> Price: U$D <%= @product.price %> </span>
+<span class='price'>
+  <%= "#{t('activerecord.attributes.product.price')}: U$D #{@product.price}" %>
+</span>
 <div>
   <%= image_tag @product.photo, width: 200 if @product.photo.attached? %>
 </div>
 
 <div>
-  <%= link_to 'Edit product', edit_product_path(@product) %>
-  <%= link_to 'Delete product', product_path(@product), data: {
+  <%= link_to t('.edit_product'), edit_product_path(@product) %>
+  <%= link_to t('.delete_product'), product_path(@product), data: {
     turbo_method: :delete,
-    turbo_confirm: 'Are you sure?'
+    turbo_confirm: t('common.confirm')
     }
   %>
 </div>

@@ -34,7 +34,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_redirected_to products_path
-    assert_equal flash[:notice], 'Product created successfully!'
+    assert_equal flash[:notice], 'Product successfully created!'
   end
 
   test 'does not create a new product when title is blank' do
@@ -91,7 +91,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_redirected_to product_path(products(:phone))
-    assert_equal flash[:notice], 'Product updated successfully!'
+    assert_equal flash[:notice], 'Product successfully updated!'
   end
 
   test 'does not update a product when title is blank' do
@@ -131,7 +131,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Product.count', -1) do
       delete product_path(products(:phone))
       assert_redirected_to products_path
-      assert_equal flash[:notice], 'Product successfully deleted'
+      assert_equal flash[:notice], 'Product successfully deleted!'
     end
   end
 end
