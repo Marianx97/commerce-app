@@ -35,4 +35,40 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_path
   end
+
+  test 'does not create a new product when title is blank' do
+    post products_path, params: {
+      product: {
+        title: '',
+        description: 'Retro videogames console',
+        price: 45
+      }
+    }
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'does not create a new product when description is blank' do
+    post products_path, params: {
+      product: {
+        title: 'Nintendo 64',
+        description: '',
+        price: 45
+      }
+    }
+
+    assert_response :unprocessable_entity
+  end
+
+  test 'does not create a new product when price is blank' do
+    post products_path, params: {
+      product: {
+        title: 'Nintendo 64',
+        description: 'Retro videogames console',
+        price: ''
+      }
+    }
+
+    assert_response :unprocessable_entity
+  end
 end
