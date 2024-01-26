@@ -9,7 +9,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_path
 
     assert_response :success
-    assert_select '.product', 2
+    assert_select '.product', 3
   end
 
   test 'render product details' do
@@ -17,7 +17,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.title', 'Moto One'
-    assert_select '.description', 'Motorola with google integrated'
+    assert_select '.description', 'Motorola con google integrado'
     assert_select '.price', 'Price: U$D 210'
   end
 
@@ -34,7 +34,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         product: {
           title: @product.title,
           description: @product.description,
-          price: @product.price
+          price: @product.price,
+          category_id: categories(:sports).id
         }
       }
     end
@@ -48,7 +49,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product: {
         title: '',
         description: @product.description,
-        price: @product.price
+        price: @product.price,
+        category_id: categories(:technology)
       }
     }
 
@@ -61,7 +63,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product: {
         title: @product.title,
         description: '',
-        price: @product.price
+        price: @product.price,
+        category_id: categories(:technology)
       }
     }
 
@@ -74,7 +77,22 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       product: {
         title: @product.title,
         description: @product.description,
-        price: ''
+        price: '',
+        category_id: categories(:technology)
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
+
+  test 'does not create a new product when category_id is blank' do
+    post products_path, params: {
+      product: {
+        title: @product.title,
+        description: @product.description,
+        price: @product.price,
+        category_id: ''
       }
     }
 

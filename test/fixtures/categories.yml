@@ -1,7 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 technology:
-  name: Technology
+  name: Tecnología
 
 sports:
-  name: Sports
+  name: Deportes
+
+clothes:
+  name: Ropa

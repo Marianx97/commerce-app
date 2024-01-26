@@ -21,6 +21,8 @@ en:
               blank: "can't be blanck"
             price:
               blank: "can't be blanck"
+            category:
+              required: 'Must have a category'
 
   common:
     confirm: 'Are you sure?'

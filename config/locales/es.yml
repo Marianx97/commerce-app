@@ -21,6 +21,8 @@ es:
               blank: 'no puede estar vacío'
             price:
               blank: 'no puede estar vacío'
+            category:
+              required: 'Debe tener una categoría'
 
   common:
     confirm: 'Estás seguro/a?'
