@@ -75,4 +75,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
     assert_equal flash[:alert], 'Invalid fields'
   end
+
+  test 'render edit product form' do
+    get edit_product_path(products(:phone))
+
+    assert_response :success
+    assert_select 'form'
+  end
 end
