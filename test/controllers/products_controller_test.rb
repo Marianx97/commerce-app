@@ -16,4 +16,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_select '.description', 'Motorola with google integrated'
     assert_select '.price', 'Price: U$D 210'
   end
+
+  test 'render new product form' do
+    get new_product_path
+
+    assert_response :success
+    assert_select 'form'
+  end
 end
