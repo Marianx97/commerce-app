@@ -1,0 +1,6 @@
+<h1>Products Index</h1>
+
+<% @products.each do |product| %>
+  <h2><%= link_to product.title, product_path(product.id)%></h2>
+  <span> U$D <%= product.price %> </span>
+<% end %>
