@@ -34,6 +34,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_redirected_to products_path
+    assert_equal flash[:notice], 'Product created successfully!'
   end
 
   test 'does not create a new product when title is blank' do
@@ -46,6 +47,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
   end
 
   test 'does not create a new product when description is blank' do
@@ -58,6 +60,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
   end
 
   test 'does not create a new product when price is blank' do
@@ -70,5 +73,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
   end
 end

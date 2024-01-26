@@ -15,8 +15,9 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to products_path
+      redirect_to products_path, notice: 'Product created successfully!'
     else
+      flash.now[:alert] = 'Invalid fields'
       render :new, status: :unprocessable_entity
     end
   end
