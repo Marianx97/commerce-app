@@ -1,0 +1,12 @@
+<div id="<%= dom_id category %>">
+  <p>
+    <strong><%= t(t('activerecord.attributes.category.name')) %></strong>
+    <%= category.name %>
+  </p>
+  <%= link_to t('.edit_category'), edit_category_path(category)  %>
+  <%= link_to t('.delete_category'), category_path(category), data: {
+    turbo_method: :delete,
+    turbo_confirm: t('common.confirm')
+    }
+  %>
+</div>

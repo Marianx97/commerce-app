@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
-  test 'render all products' do
+  setup do
+    @product = products(:switch)
+  end
+
+  test 'lists all products' do
     get products_path
 
     assert_response :success
@@ -25,13 +29,15 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'creates a new product' do
-    post products_path, params: {
-      product: {
-        title: 'Nintendo 64',
-        description: 'Retro videogames console',
-        price: 45
+    assert_difference('Product.count') do
+      post products_path, params: {
+        product: {
+          title: @product.title,
+          description: @product.description,
+          price: @product.price
+        }
       }
-    }
+    end
 
     assert_redirected_to products_path
     assert_equal flash[:notice], 'Product successfully created!'
@@ -41,8 +47,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     post products_path, params: {
       product: {
         title: '',
-        description: 'Retro videogames console',
-        price: 45
+        description: @product.description,
+        price: @product.price
       }
     }
 
@@ -53,9 +59,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'does not create a new product when description is blank' do
     post products_path, params: {
       product: {
-        title: 'Nintendo 64',
+        title: @product.title,
         description: '',
-        price: 45
+        price: @product.price
       }
     }
 
@@ -66,8 +72,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'does not create a new product when price is blank' do
     post products_path, params: {
       product: {
-        title: 'Nintendo 64',
-        description: 'Retro videogames console',
+        title: @product.title,
+        description: @product.description,
         price: ''
       }
     }
@@ -84,44 +90,28 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'updates a product' do
-    patch product_path(products(:phone)), params: {
-      product: {
-        price: 190
-      }
-    }
+    patch product_path(products(:phone)), params: { product: { price: 190 } }
 
     assert_redirected_to product_path(products(:phone))
     assert_equal flash[:notice], 'Product successfully updated!'
   end
 
   test 'does not update a product when title is blank' do
-    patch product_path(products(:phone)), params: {
-      product: {
-        title: '',
-      }
-    }
+    patch product_path(products(:phone)), params: { product: { title: '' } }
 
     assert_response :unprocessable_entity
     assert_equal flash[:alert], 'Invalid fields'
   end
 
   test 'does not update a product when description is blank' do
-    patch product_path(products(:phone)), params: {
-      product: {
-        description: '',
-      }
-    }
+    patch product_path(products(:phone)), params: { product: { description: '', } }
 
     assert_response :unprocessable_entity
     assert_equal flash[:alert], 'Invalid fields'
   end
 
   test 'does not update a product when price is blank' do
-    patch product_path(products(:phone)), params: {
-      product: {
-        price: '',
-      }
-    }
+    patch product_path(products(:phone)), params: { product: { price: '' } }
 
     assert_response :unprocessable_entity
     assert_equal flash[:alert], 'Invalid fields'
@@ -130,8 +120,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'deletes a product' do
     assert_difference('Product.count', -1) do
       delete product_path(products(:phone))
-      assert_redirected_to products_path
-      assert_equal flash[:notice], 'Product successfully deleted!'
     end
+
+    assert_redirected_to products_path
+    assert_equal flash[:notice], 'Product successfully deleted!'
   end
 end

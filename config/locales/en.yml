@@ -2,12 +2,15 @@ en:
   activerecord:
     models:
       product: 'Product'
+      category: 'Category'
     attributes:
       product:
         title: 'Title'
         description: 'Description'
         price: 'Price'
         photo: 'Photo'
+      category:
+        name: 'Name'
     errors:
       models:
         product:
@@ -22,6 +25,7 @@ en:
   common:
     confirm: 'Are you sure?'
     add_product: 'Add new product'
+    add_category: 'Add new category'
     invalid_fields: 'Invalid fields'
 
   helpers:
@@ -35,7 +39,9 @@ en:
     new:
       title: 'Add new product:'
     index:
-      title: 'Products: '
+      title: 'Products:'
+      products: 'Products'
+      categories: 'Categories'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'
@@ -45,3 +51,22 @@ en:
       updated: 'Product successfully updated!'
     destroy:
       destroyed: 'Product successfully deleted!'
+
+  categories:
+    category:
+      edit_category: 'Edit category'
+      delete_category: 'Delete category'
+    edit:
+      title: 'Edit category:'
+    new:
+      title: 'Add new category:'
+    index:
+      title: 'Categories:'
+    form:
+      back: 'Back to categories'
+    create:
+      created: 'Category successfully created!'
+    update:
+      updated: 'Category successfully updated!'
+    destroy:
+      destroyed: 'Category successfully deleted!'

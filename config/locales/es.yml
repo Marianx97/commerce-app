@@ -2,12 +2,15 @@ es:
   activerecord:
     models:
       product: 'Producto'
+      category: 'Categoria'
     attributes:
       product:
         title: 'Título'
         description: 'Descripción'
         price: 'Precio'
         photo: 'Foto'
+      category:
+        name: 'Nombre'
     errors:
       models:
         product:
@@ -22,6 +25,7 @@ es:
   common:
     confirm: 'Estás seguro/a?'
     add_product: 'Añadir nuevo producto'
+    add_category: 'Añadir nueva categoría'
     invalid_fields: 'Los campos son inválidos'
 
   helpers:
@@ -35,7 +39,9 @@ es:
     new:
       title: 'Añadir producto:'
     index:
-      title: 'Productos: '
+      title: 'Productos:'
+      products: 'Productos'
+      categories: 'Categorías'
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'
@@ -45,3 +51,22 @@ es:
       updated: 'Producto actualizado exitosamente!'
     destroy:
       destroyed: 'Producto eliminado exitosamente!'
+
+  categories:
+    category:
+      edit_category: 'Editar categoría'
+      delete_category: 'Eliminar categoría'
+    edit:
+      title: 'Editar categoría:'
+    new:
+      title: 'Añadir categoría:'
+    form:
+      back: 'Volver a categorías'
+    index:
+      title: 'Categorías:'
+    create:
+      created: 'Categoría creada exitosamente!'
+    update:
+      updated: 'Categoría actualizada exitosamente!'
+    destroy:
+      destroyed: 'Categoría eliminada exitosamente!'
