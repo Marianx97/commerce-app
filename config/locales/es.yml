@@ -41,9 +41,12 @@ es:
     new:
       title: 'Añadir producto:'
     index:
+      all: 'Todas'
       title: 'Productos:'
       products: 'Productos'
       categories: 'Categorías'
+      min_price: 'Precio mínimo'
+      max_price: 'Precio máximo'
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'

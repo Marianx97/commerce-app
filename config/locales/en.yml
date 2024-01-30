@@ -41,9 +41,12 @@ en:
     new:
       title: 'Add new product:'
     index:
+      all: 'All'
       title: 'Products:'
       products: 'Products'
       categories: 'Categories'
+      min_price: 'Minimum price'
+      max_price: 'Maximum price'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'

@@ -2,7 +2,26 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def index
-    @products = Product.all.with_attached_photo.order(updated_at: :desc)
+    @categories = Category.order(name: :asc)
+                          .load_async
+
+    if params[:category_id]
+      @products = Product.where(category_id: params[:category_id])
+                         .with_attached_photo
+                         .order(updated_at: :desc)
+                         .load_async
+    else
+      @products = Product.with_attached_photo
+                         .order(updated_at: :desc)
+                         .load_async
+    end
+    if params[:min_price].present?
+      @products = @products.where('price >= ?', params[:min_price])
+    end
+
+    if params[:max_price].present?
+      @products = @products.where('price <= ?', params[:max_price])
+    end
   end
 
   def show; end
