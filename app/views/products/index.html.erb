@@ -7,6 +7,11 @@
   </div>
 
   <%= form_with url: products_path, method: :get do |form| %>
+    <%= form.text_field :query_text,
+      placeholder: t('.query_text'),
+      onChange: 'this.form.requestSubmit()',
+      value: params[:query_text]
+    %>
     <%= form.number_field :min_price,
       placeholder: t('.min_price'),
       onChange: 'this.form.requestSubmit()',

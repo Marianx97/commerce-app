@@ -47,6 +47,7 @@ es:
       categories: 'Categorías'
       min_price: 'Precio mínimo'
       max_price: 'Precio máximo'
+      query_text: 'Buscar productos'
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'

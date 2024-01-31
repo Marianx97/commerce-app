@@ -13,15 +13,23 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_select '.category', 3
   end
 
-  test 'lists filtered products by category' do
+  test 'lists products filtered by category' do
     get products_path(category_id: categories(:technology).id)
 
     assert_response :success
     assert_select '.product', 2
   end
 
-  test 'lists filtered products by price' do
+  test 'lists products filtered by price' do
     get products_path(min_price: 300, max_price: 500)
+
+    assert_response :success
+    assert_select '.product', 1
+    assert_select 'h2', 'Nintendo Switch'
+  end
+
+  test 'lists products filtered by query_text' do
+    get products_path(query_text: 'Switch')
 
     assert_response :success
     assert_select '.product', 1
