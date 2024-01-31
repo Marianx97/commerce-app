@@ -36,6 +36,30 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', 'Nintendo Switch'
   end
 
+  test 'lists products order by most_expensive' do
+    get products_path(order_by: 'most_expensive')
+
+    assert_response :success
+    assert_select '.product', 3
+    assert_select('h2.product').first['Skateboard']
+  end
+
+  test 'lists products order by least_expensive' do
+    get products_path(order_by: 'least_expensive')
+
+    assert_response :success
+    assert_select '.product', 3
+    assert_select('h2.product').first['Moto One']
+  end
+
+  test 'lists products order by newest' do
+    get products_path(order_by: 'newest')
+
+    assert_response :success
+    assert_select '.product', 3
+    assert_select('h2.product').first['Skateboard']
+  end
+
   test 'render product details' do
     get product_path(products(:phone))
 

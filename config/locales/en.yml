@@ -48,6 +48,9 @@ en:
       min_price: 'Minimum price'
       max_price: 'Maximum price'
       query_text: 'Search products'
+      newest: 'Newest'
+      most_expensive: 'Most expensive'
+      least_expensive: 'Least expensive'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'

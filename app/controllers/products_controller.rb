@@ -2,12 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def index
-    @categories = Category.order(name: :asc)
-                          .load_async
+    @categories = Category.order(name: :asc).load_async
 
     @products = Product.with_attached_photo
-                       .order(updated_at: :desc)
-                       .load_async
 
     if params[:category_id]
       @products = @products.where(category_id: params[:category_id])
@@ -23,6 +20,15 @@ class ProductsController < ApplicationController
 
     if params[:query_text].present?
       @products = @products.search_full_text(params[:query_text])
+    end
+
+    case params[:order_by]
+      when 'most_expensive'
+        @products = @products.order(price: :desc).load_async
+      when 'least_expensive'
+        @products = @products.order(price: :asc).load_async
+      else
+        @products = @products.order(updated_at: :desc).load_async
     end
   end
 
