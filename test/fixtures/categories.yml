@@ -8,3 +8,27 @@ sports:
 
 clothes:
   name: Ropa
+
+cars:
+  name: Automóviles
+
+music:
+  name: Música
+
+books:
+  name: Libros
+
+mobile:
+  name: Móviles
+
+movies:
+  name: Películas
+
+home:
+  name: Hogar
+
+outdoor:
+  name: Jardín
+
+videogames:
+  name: Videojuegos

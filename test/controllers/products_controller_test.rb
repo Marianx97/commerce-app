@@ -9,22 +9,22 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_path
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select '.category', 3
+    assert_select '.product', 12
+    assert_select '.category', 11
   end
 
   test 'lists products filtered by category' do
     get products_path(category_id: categories(:technology).id)
 
     assert_response :success
-    assert_select '.product', 2
+    assert_select '.product', 7
   end
 
   test 'lists products filtered by price' do
     get products_path(min_price: 300, max_price: 500)
 
     assert_response :success
-    assert_select '.product', 1
+    assert_select '.product', 3
     assert_select 'h2', 'Nintendo Switch'
   end
 
@@ -40,24 +40,24 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_path(order_by: 'most_expensive')
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select('h2.product').first['Skateboard']
+    assert_select '.product', 12
+    assert_select('h2.product').first['Seat Panda clásico']
   end
 
   test 'lists products order by least_expensive' do
     get products_path(order_by: 'least_expensive')
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select('h2.product').first['Moto One']
+    assert_select '.product', 12
+    assert_select('h2.product').first['El hobbit']
   end
 
   test 'lists products order by newest' do
     get products_path(order_by: 'newest')
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select('h2.product').first['Skateboard']
+    assert_select '.product', 12
+    assert_select('h2.product').first['Raqueta de tenis profesional']
   end
 
   test 'render product details' do

@@ -30,6 +30,8 @@ class ProductsController < ApplicationController
       else
         @products = @products.order(updated_at: :desc).load_async
     end
+
+    @pagy, @products = pagy_countless(@products, items: 12)
   end
 
   def show; end
