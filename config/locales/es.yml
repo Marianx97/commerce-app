@@ -79,3 +79,8 @@ es:
       updated: 'Categoría actualizada exitosamente!'
     destroy:
       destroyed: 'Categoría eliminada exitosamente!'
+
+  authentication:
+    users:
+      create:
+        created: 'Usuario creado exitosamente!'
