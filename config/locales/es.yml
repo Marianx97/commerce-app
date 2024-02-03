@@ -3,6 +3,7 @@ es:
     models:
       product: 'Producto'
       category: 'Categoria'
+      user: 'Usuario'
     attributes:
       product:
         title: 'Título'
@@ -11,18 +12,10 @@ es:
         photo: 'Foto'
       category:
         name: 'Nombre'
-    errors:
-      models:
-        product:
-          attributes:
-            title:
-              blank: 'no puede estar vacío'
-            description:
-              blank: 'no puede estar vacío'
-            price:
-              blank: 'no puede estar vacío'
-            category:
-              required: 'Debe tener una categoría'
+      user:
+        email: 'Correo'
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
 
   common:
     confirm: 'Estás seguro/a?'
@@ -52,6 +45,9 @@ es:
       newest: 'Más reciente'
       most_expensive: 'Más caro'
       least_expensive: 'Más barato'
+      login: 'Iniciar sesión'
+      register: 'Registrarse'
+      logout: 'Cerrar sesion'
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'
@@ -89,3 +85,5 @@ es:
       create:
         created: 'Conectado exitosamente!'
         failed: 'Las credenciales no son correctas!'
+      destroy:
+        destroyed: 'Sesión cerrada!'

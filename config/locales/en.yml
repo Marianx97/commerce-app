@@ -3,6 +3,7 @@ en:
     models:
       product: 'Product'
       category: 'Category'
+      user: 'User'
     attributes:
       product:
         title: 'Title'
@@ -11,18 +12,10 @@ en:
         photo: 'Photo'
       category:
         name: 'Name'
-    errors:
-      models:
-        product:
-          attributes:
-            title:
-              blank: "can't be blanck"
-            description:
-              blank: "can't be blanck"
-            price:
-              blank: "can't be blanck"
-            category:
-              required: 'Must have a category'
+      user:
+        email: 'Email'
+        username: 'Username'
+        password: 'Password'
 
   common:
     confirm: 'Are you sure?'
@@ -52,6 +45,9 @@ en:
       newest: 'Newest'
       most_expensive: 'Most expensive'
       least_expensive: 'Least expensive'
+      login: 'Sign in'
+      register: 'Sign up'
+      logout: 'Log out'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'
@@ -89,3 +85,5 @@ en:
       create:
         created: 'Successfully signed in!'
         failed: 'Invalid credentials!'
+      destroy:
+        destroyed: 'Logged out!'
