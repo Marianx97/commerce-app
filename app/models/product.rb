@@ -14,4 +14,8 @@ class Product < ApplicationRecord
     title: 'A',
     description: 'B'
   }
+
+  def owner?
+    user_id == Current.user.id
+  end
 end

@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_action :protect_pages, only: [:index, :show]
   before_action :set_product, only: [:edit, :update, :show, :destroy]
-  before_action :authorize!, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.order(name: :asc).load_async
@@ -29,9 +28,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize!(@product)
+  end
 
   def update
+    authorize!(@product)
     if @product.update(product_params)
       redirect_to product_path, notice: t('.updated')
     else
@@ -41,6 +43,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize!(@product)
     @product.destroy
     redirect_to products_path, notice: t('.destroyed'), status: :see_other
   end
