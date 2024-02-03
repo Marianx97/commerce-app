@@ -84,3 +84,7 @@ en:
     users:
       create:
         created: 'User successfully created!'
+    sessions:
+      create:
+        created: 'Successfully signed in!'
+        failed: 'Invalid credentials!'

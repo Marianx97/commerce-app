@@ -84,3 +84,7 @@ es:
     users:
       create:
         created: 'Usuario creado exitosamente!'
+    sessions:
+      create:
+        created: 'Conectado exitosamente!'
+        failed: 'Las credenciales no son correctas!'

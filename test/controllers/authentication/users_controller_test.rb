@@ -19,4 +19,43 @@ class Authentication::UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_url
   end
+
+  test 'should not create a user when email is invalid' do
+    post users_url, params: {
+      user: {
+        email: '',
+        username: 'juan09',
+        password: 'testme'
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
+
+  test 'should not create a user when username is invalid' do
+    post users_url, params: {
+      user: {
+        email: 'juan@vendelo.com',
+        username: '',
+        password: 'testme'
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
+
+  test 'should not create a user when password is invalid' do
+    post users_url, params: {
+      user: {
+        email: 'juan@vendelo.com',
+        username: 'juan09',
+        password: ''
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_equal flash[:alert], 'Invalid fields'
+  end
 end
