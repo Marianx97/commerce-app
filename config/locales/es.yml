@@ -24,6 +24,7 @@ es:
     invalid_fields: 'Los campos son inválidos'
     not_logged_in: 'Tienes que iniciar sesión para acceder a esta página'
     unauthorized: 'Not tienes permiso para realizar esta acción!'
+    not_found: 'No se ha encontrado!'
 
   helpers:
     submit:
@@ -52,6 +53,7 @@ es:
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'
+      view_profile: 'Ver más productos de %{username}'
     create:
       created: 'Producto creado exitosamente!'
     update:

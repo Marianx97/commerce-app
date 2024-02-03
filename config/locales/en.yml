@@ -24,6 +24,7 @@ en:
     invalid_fields: 'Invalid fields'
     not_logged_in: 'You have to login to access this page'
     unauthorized: 'You do not have permission for this action!'
+    not_found: 'Not found!'
 
   helpers:
     submit:
@@ -52,6 +53,7 @@ en:
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'
+      view_profile: 'View more products from %{username}'
     create:
       created: 'Product successfully created!'
     update:
