@@ -8,10 +8,10 @@
 </div>
 
 <div>
-  <%= link_to t('.edit_product'), edit_product_path(@product) %>
+  <%= link_to t('.edit_product'), edit_product_path(@product) if @product.user == Current.user %>
   <%= link_to t('.delete_product'), product_path(@product), data: {
     turbo_method: :delete,
     turbo_confirm: t('common.confirm')
-    }
+    } if @product.user == Current.user
   %>
 </div>

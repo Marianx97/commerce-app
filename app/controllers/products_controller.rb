@@ -52,7 +52,10 @@ class ProductsController < ApplicationController
   end
 
   def index_params
-    params.permit( :category_id, :min_price, :max_price, :query_text, :order_by)
+    params.permit(
+      :category_id, :min_price, :max_price,
+      :query_text, :order_by, :page
+    )
   end
 
   def set_product
