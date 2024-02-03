@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :category
+  belongs_to :user, default: -> { Current.user }
 
   pg_search_scope :search_full_text, against: {
     title: 'A',
