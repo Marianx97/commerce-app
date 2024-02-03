@@ -50,6 +50,7 @@ en:
       login: 'Sign in'
       register: 'Sign up'
       logout: 'Log out'
+      favorites: 'My favorites'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'
@@ -79,6 +80,10 @@ en:
       updated: 'Category successfully updated!'
     destroy:
       destroyed: 'Category successfully deleted!'
+
+  favorites:
+    index:
+      title: 'My favorites'
 
   authentication:
     users:

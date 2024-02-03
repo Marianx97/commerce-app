@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   include PgSearch::Model
+  include Favoritable
 
   validates :title, presence: :true
   validates :description, presence: :true

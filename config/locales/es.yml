@@ -50,6 +50,7 @@ es:
       login: 'Iniciar sesión'
       register: 'Registrarse'
       logout: 'Cerrar sesion'
+      favorites: 'Mis favoritos'
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'
@@ -79,6 +80,10 @@ es:
       updated: 'Categoría actualizada exitosamente!'
     destroy:
       destroyed: 'Categoría eliminada exitosamente!'
+
+  favorites:
+    index:
+      title: 'Mis favoritos'
 
   authentication:
     users:
