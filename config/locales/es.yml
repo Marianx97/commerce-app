@@ -23,6 +23,7 @@ es:
     add_category: 'Añadir nueva categoría'
     invalid_fields: 'Los campos son inválidos'
     not_logged_in: 'Tienes que iniciar sesión para acceder a esta página'
+    unauthorized: 'Not tienes permiso para realizar esta acción!'
 
   helpers:
     submit:

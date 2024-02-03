@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   skip_before_action :protect_pages, only: [:index, :show]
   before_action :set_product, only: [:edit, :update, :show, :destroy]
+  before_action :authorize!, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.order(name: :asc).load_async
