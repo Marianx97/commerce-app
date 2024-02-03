@@ -16,6 +16,6 @@ class Product < ApplicationRecord
   }
 
   def owner?
-    user_id == Current.user.id
+    user_id == Current.user&.id
   end
 end
