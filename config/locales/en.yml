@@ -29,6 +29,7 @@ en:
     add_product: 'Add new product'
     add_category: 'Add new category'
     invalid_fields: 'Invalid fields'
+    not_logged_in: 'You have to login to access this page'
 
   helpers:
     submit:
