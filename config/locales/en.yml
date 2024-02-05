@@ -42,6 +42,12 @@ en:
       title: 'Edit product:'
     new:
       title: 'Add new product:'
+    form:
+      title_placeholder: 'What do you want to sell?'
+      description_placeholder: 'Could you describe your product?'
+      price_placeholder: 'For how much?'
+      category_placeholder: 'In what category could fit better?'
+      submit: 'Sell it now!'
     index:
       all: 'All'
       title: 'Products:'
