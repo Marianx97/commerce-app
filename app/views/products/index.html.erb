@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'home' do %>
   <div class='flex overflow-x-scroll gap-2 my-4'>
-    <%= link_to t('.all'), products_path, class: 'bg-white text-gray-600 px-4 py-2 rounded-2xl drop-shadow-sm hover:bg-gray-300' %>
-    <%= render partial: 'category', collection: @categories %>
+    <%= render(CategoryComponent.new) %>
+    <%= render(CategoryComponent.with_collection(@categories)) %>
   </div>
 
   <%= form_with url: products_path, method: :get do |form| %>
@@ -41,8 +41,6 @@
       %>
     </div>
   <% end %>
-
-  <h1><%= t('.title') %></h1>
 
   <%= turbo_frame_tag :products, class: 'flex flex-col m-2' do %>
     <%= turbo_frame_tag "products-#{@pagy.page}",

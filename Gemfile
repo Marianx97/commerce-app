@@ -51,6 +51,9 @@ gem "bootsnap", require: false
 # Tailwind CSS is a utility-first CSS framework [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails", "~> 2.0"
 
+# A framework for building reusable, testable & encapsulated view components in Ruby on Rails [https://github.com/ViewComponent/view_component]
+gem "view_component", "~> 2.74"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

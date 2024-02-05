@@ -11,7 +11,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.product', 12
-    assert_select '.category', 11
+    assert_select '.category', 12
   end
 
   test 'lists products filtered by category' do
@@ -42,7 +42,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.product', 12
-    assert_select('h2.product').first['Seat Panda clásico']
+    assert_select '.products .product:first-child h2', 'Seat Panda clásico'
   end
 
   test 'lists products order by least_expensive' do
@@ -50,7 +50,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.product', 12
-    assert_select('h2.product').first['El hobbit']
+    assert_select '.products .product:first-child h2', 'El hobbit'
   end
 
   test 'lists products order by newest' do
@@ -58,7 +58,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.product', 12
-    assert_select('h2.product').first['Raqueta de tenis profesional']
+    assert_select('.product').first['Raqueta de tenis profesional']
   end
 
   test 'render product details' do
