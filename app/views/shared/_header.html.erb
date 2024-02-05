@@ -1,10 +1,13 @@
-<h1>Commerce App</h1>
-<%= link_to t('.products'), products_path %>
-<%= link_to t('.favorites'), favorites_path if Current.user %>
-<%= link_to t('.categories'), categories_path if Current.user&.admin? %>
-<%= link_to t('.login'), new_session_path unless Current.user %>
-<%= link_to t('.register'), new_user_path unless Current.user %>
-<%= link_to t('.logout'), session_path(Current.user.id), data: {
-  turbo_method: :delete,
-  turbo_confirm: t('common.confirm')
-  }  if Current.user %>
+<div class="bg-white flex justify-between items-center px-2">
+  <h1 class='mx-2 text-red-500 font-bold' >Commerce App</h1>
+  <%= link_to t('common.add_product'), new_product_path, class: 'mx-2 text-teal-500 font-bold' if Current.user %>
+  <%= link_to t('common.products'), products_path, class: 'mx-2 text-teal-500 font-bold' %>
+  <%= link_to t('common.favorites'), favorites_path, class: 'mx-2 text-teal-500 font-bold' if Current.user %>
+  <%= link_to t('common.categories'), categories_path, class: 'mx-2 text-teal-500 font-bold' if Current.user&.admin? %>
+  <%= link_to t('common.login'), new_session_path, class: 'mx-2 text-teal-500 font-bold' unless Current.user %>
+  <%= link_to t('common.register'), new_user_path, class: 'mx-2 text-teal-500 font-bold' unless Current.user %>
+  <%= link_to t('common.logout'), session_path(Current.user.id), data: {
+    turbo_method: :delete,
+    turbo_confirm: t('common.confirm')
+    }, class: 'mx-2 text-teal-500 font-bold' if Current.user %>
+</div>

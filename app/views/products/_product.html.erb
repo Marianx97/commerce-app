@@ -1,5 +1,11 @@
-<h2 class='product' >
-  <%= link_to product.title, product_path(product.id), 'data-turbo-frame': '_top'  %>
-</h2>
-<span> U$D <%= product.price %> </span>
-<div><%= image_tag product.photo, width: 100 if product.photo.attached? %></div>
+<%= link_to product_path(product),
+  class: 'product bg-white mb-2 rounded sm:w-[calc(33.33333%_-_.5rem)] lg:w-[calc(25%_-_.5rem)]',
+  'data-turbo-frame': '_top' do %>
+    <%= image_tag product.photo.attached? ? product.photo : 'placeholder.jpg',
+      class: "w-full h-60 object-cover" %>
+    <div class="m-2">
+        <span class="font-bold text-xl"> U$D <%= product.price %></span>
+        <h2 class=""><%= product.title %></h2>
+        <p class="text-gray-500 text-sm mt-2"><%= truncate(product.description, length: 35) %></p>
+    </div>
+<% end %>

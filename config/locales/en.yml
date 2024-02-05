@@ -25,6 +25,12 @@ en:
     not_logged_in: 'You have to login to access this page'
     unauthorized: 'You do not have permission for this action!'
     not_found: 'Not found!'
+    products: 'Products'
+    categories: 'Categories'
+    login: 'Sign in'
+    register: 'Sign up'
+    logout: 'Log out'
+    favorites: 'My favorites'
 
   helpers:
     submit:
@@ -39,18 +45,12 @@ en:
     index:
       all: 'All'
       title: 'Products:'
-      products: 'Products'
-      categories: 'Categories'
       min_price: 'Minimum price'
       max_price: 'Maximum price'
       query_text: 'Search products'
       newest: 'Newest'
       most_expensive: 'Most expensive'
       least_expensive: 'Least expensive'
-      login: 'Sign in'
-      register: 'Sign up'
-      logout: 'Log out'
-      favorites: 'My favorites'
     show:
       edit_product: 'Edit product'
       delete_product: 'Delete product'

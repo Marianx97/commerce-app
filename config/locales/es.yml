@@ -25,6 +25,12 @@ es:
     not_logged_in: 'Tienes que iniciar sesión para acceder a esta página'
     unauthorized: 'Not tienes permiso para realizar esta acción!'
     not_found: 'No se ha encontrado!'
+    products: 'Productos'
+    categories: 'Categorías'
+    login: 'Iniciar sesión'
+    register: 'Registrarse'
+    logout: 'Cerrar sesion'
+    favorites: 'Mis favoritos'
 
   helpers:
     submit:
@@ -39,18 +45,12 @@ es:
     index:
       all: 'Todas'
       title: 'Productos:'
-      products: 'Productos'
-      categories: 'Categorías'
       min_price: 'Precio mínimo'
       max_price: 'Precio máximo'
       query_text: 'Buscar productos'
       newest: 'Más reciente'
       most_expensive: 'Más caro'
       least_expensive: 'Más barato'
-      login: 'Iniciar sesión'
-      register: 'Registrarse'
-      logout: 'Cerrar sesion'
-      favorites: 'Mis favoritos'
     show:
       edit_product: 'Editar producto'
       delete_product: 'Eliminar producto'
