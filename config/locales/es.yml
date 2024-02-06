@@ -101,3 +101,8 @@ es:
         failed: 'Las credenciales no son correctas!'
       destroy:
         destroyed: 'Sesión cerrada!'
+
+  user_mailer:
+    welcome:
+      subject: 'Bienvenido a CommerceApp'
+      welcome_message: 'Hey %{username}, bienvenido/a a CommerceApp. Esperemos que vendas un montón!'

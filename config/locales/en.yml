@@ -101,3 +101,8 @@ en:
         failed: 'Invalid credentials!'
       destroy:
         destroyed: 'Logged out!'
+
+  user_mailer:
+    welcome:
+      subject: 'Welcome to CommerceApp'
+      welcome_message: 'Hey %{username}, welcome to CommerceApp. We hope you sell a lot!'
