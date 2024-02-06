@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class Authentication::UsersControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    stub_request(:get, 'http://ip-api.com/json/127.0.0.1').
+      to_return(status: 200, body: { status: 'fail' }.to_json, headers: {})
+  end
+
   test 'should get new' do
     get new_user_url
     assert_response :success
