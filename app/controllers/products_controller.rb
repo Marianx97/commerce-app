@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   def update
     authorize!(@product)
     if @product.update(product_params)
-      notify_all_users
+      @product.broadcast
       redirect_to product_path, notice: t('.updated')
     else
       flash.now[:alert] = t('common.invalid_fields')
@@ -66,12 +66,5 @@ class ProductsController < ApplicationController
 
   def set_product
     @product ||= Product.find(params[:id])
-  end
-
-  def notify_all_users
-    ActionCable.server.broadcast(
-      "product_#{@product.id}",
-      { action: 'updated' }
-    )
   end
 end

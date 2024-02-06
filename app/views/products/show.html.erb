@@ -1,11 +1,4 @@
-<h1 class='title'><%= @product.title %></h1>
-<p class='description'> <%= @product.description %> </p>
-<span class='price'>
-  <%= "#{t('activerecord.attributes.product.price')}: U$D #{@product.price}" %>
-</span>
-<div>
-  <%= image_tag @product.photo, width: 200 if @product.photo.attached? %>
-</div>
+<%= render partial: 'products/product_details', locals: { product: @product } %>
 
 <div>
   <%= link_to t('.edit_product'), edit_product_path(@product) if @product.owner? %>
@@ -22,4 +15,4 @@
 
 <%= render partial: 'favorite', locals: { product: @product } %>
 
-<div data-controller="websocket-product" data-productid="<%= @product.id %>"></div>
+<%= turbo_stream_from @product %>
