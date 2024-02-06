@@ -21,3 +21,5 @@
 </div>
 
 <%= render partial: 'favorite', locals: { product: @product } %>
+
+<div data-controller="websocket-product" data-productid="<%= @product.id %>"></div>
